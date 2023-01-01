@@ -1,1 +1,1 @@
-export default 'hello friends'
+export default 'hello friends, i love u'

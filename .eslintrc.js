@@ -6,7 +6,7 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
-  plugins: ["jest"],
+  plugins: [],
   rules: {
     'no-debugger': 'error',
     'no-unused-vars': [
@@ -27,7 +27,5 @@ module.exports = {
       'AwaitExpression'
     ]
   },
-  overrides: [
-    
-  ]
+  overrides: []
 }

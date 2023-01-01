@@ -10,10 +10,12 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "postinstall": "simple-git-hooks"
+    "postinstall": "simple-git-hooks",
+    "commit": "cz"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
+    "prepare-commit-msg": "npx --no -- commitlint --edit ${1}",
     "commit-msg": "node scripts/verifyCommit.mjs"
   },
   "lint-staged": {
@@ -32,11 +34,14 @@
   "author": "baosisi",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-angular": "^17.3.0",
     "@microsoft/api-extractor": "^7.33.7",
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-terser": "^0.2.1",
+    "@typescript-eslint/parser": "^5.47.1",
     "chalk": "4.1.0",
     "enquirer": "^2.3.6",
     "eslint": "^8.31.0",
