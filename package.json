@@ -11,12 +11,11 @@
   "scripts": {
     "build": "node scripts/build.js",
     "postinstall": "simple-git-hooks",
-    "commit": "cz"
+    "cm": "cz"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
-    "prepare-commit-msg": "npx --no -- commitlint --edit ${1}",
-    "commit-msg": "node scripts/verifyCommit.mjs"
+    "commit-msg": "npx --no -- commitlint --edit ${1}"
   },
   "lint-staged": {
     "*.{js,json}": [
@@ -35,7 +34,7 @@
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
-    "@commitlint/config-angular": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
     "@microsoft/api-extractor": "^7.33.7",
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-json": "^6.0.0",
