@@ -17,9 +17,13 @@ const resolve = p => path.resolve(packageDir, p)
 const pkg = require(resolve(`package.json`))
 const packageOptions = pkg.buildOptions || {}
 const name = packageOptions.filename || path.basename(packageDir)
-
+const globalName = packageOptions.name || path.basename(packageDir)
 // 定义输出类型对应的编译项
 const outputConfigs = {
+  'esm-bundler': {
+    file: resolve(`dist/${name}.esm-bundler.js`),
+    format: `es`
+  },
   'esm-browser': {
     file: resolve(`dist/${name}.esm-browser.js`),
     format: `es`
@@ -29,7 +33,7 @@ const outputConfigs = {
     format: `cjs`
   },
   global: {
-    name: name,
+    name: globalName,
     file: resolve(`dist/${name}.global.js`),
     format: `iife`
   }
@@ -48,7 +52,6 @@ function createConfig(format, output, plugins = []) {
   const shouldEmitDeclarations = !!pkg.types
 
   const tsPlugin = ts({
-    target: format === 'cjs' ? 'es2019' : 'es2015',
     tsconfig: path.resolve(__dirname, 'tsconfig.json'),
     tsconfigOverride: {
       compilerOptions: {
@@ -58,7 +61,6 @@ function createConfig(format, output, plugins = []) {
         declarationMap: shouldEmitDeclarations
       }
     }
-    
   })
   const nodePlugins =
   (format === 'cjs' && Object.keys(pkg.devDependencies || {}).length) ? [
@@ -68,7 +70,7 @@ function createConfig(format, output, plugins = []) {
         ...(format === 'cjs' ? [] : [polyfillNode()]),
         nodeResolve()
       ]
-          : []
+      : []
   const minifyPlugin = format === 'global' && format === 'esm-browser' ? [terser()] : []
   return {
       input: resolve('src/index.ts'),
