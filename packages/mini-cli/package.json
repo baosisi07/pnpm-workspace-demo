@@ -2,6 +2,7 @@
   "name": "@baosisi07/mini-cli",
   "version": "1.0.0",
   "description": "miniprogram cli for wx",
+  "types": "dist/mini-cli.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
