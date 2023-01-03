@@ -1,0 +1,9 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@baosisi07/mini-cli": "1.0.0",
+    "@baosisi07/tools": "1.0.0"
+  },
+  "changesets": ["nasty-mails-brush"]
+}

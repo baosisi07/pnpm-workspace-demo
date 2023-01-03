@@ -12,6 +12,8 @@
     "build": "node scripts/build.js",
     "postinstall": "simple-git-hooks",
     "commit": "cz",
+    "changeset": "changeset",
+    "version": "changeset version",
     "release": "run-s build releaseOnly",
     "releaseOnly": "changeset publish"
   },
