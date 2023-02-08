@@ -85,7 +85,10 @@ const build = async function (target) {
     }
 
     // 删除ts生成的声明文件
-    await rm(`${pkgDir}/dist/packages`, { recursive: true, force: true })
+
+    for (let i of targets) {
+      await rm(`${pkgDir}/dist/packages/${i}`, { recursive: true, force: true })
+    }
   }
 }
 buildAll()

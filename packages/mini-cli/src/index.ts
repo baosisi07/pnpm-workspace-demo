@@ -1,1 +1,3 @@
-export default 'hello friends, i love u'
+import { testWorkspace } from '@baosisi07/tools'
+testWorkspace()
+export default 'hello'

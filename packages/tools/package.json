@@ -1,16 +1,19 @@
 {
   "name": "@baosisi07/tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "tools utils",
   "exports": {
-    "import": "dist/tools.cjs.js",
-    "require": "dist/tools.esm-browser.js"
+    "require": "./dist/tools.cjs.js",
+    "import": "./dist/tools.esm-bundler.js"
   },
-  "unpkg": "dist/tools.global.js",
+  "files": [
+    "dist"
+  ],
+  "unpkg": "./dist/tools.global.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "types": "dist/tools.d.ts",
+  "types": "./dist/tools.d.ts",
   "buildOptions": {
     "name": "tools",
     "formats": [
